@@ -1,7 +1,7 @@
-rockspec_format = "3.0"
+rockspec_format = '3.0'
 
-package = "lua-casclib"
-version = "scm-0"
+package = 'lua-casclib'
+version = 'scm-0'
 
 description = {
 	summary = 'A Lua binding to CascLib',
