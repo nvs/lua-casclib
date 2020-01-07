@@ -1,6 +1,6 @@
 # lua-casclib
 
-[![License](https://img.shields.io/github/license/nvs/lua-casclib.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/nvs/lua-casclib)](LICENSE)
 
 ## Contents
 
