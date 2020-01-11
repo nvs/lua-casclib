@@ -71,17 +71,17 @@ print (casc)
 casc:close ()
 
 -- Iterate through a list of all file names.
-for name in mpq:files () do
+for name in casc:files () do
     -- All files in archive.
 end
 
 -- Can take a Lua pattern to refine the results.
-for name in mpq:files ('%.slk$') do
+for name in casc:files ('%.slk$') do
     -- All matching files.
 end
 
 -- Can also take a plain string.
-for name in mpq:files ('.slk', true) do
+for name in casc:files ('.slk', true) do
     -- All files that contain the matching string.
 end
 
@@ -107,5 +107,5 @@ end
 
 -- The archive, as well as any open files, will be garbage collected and
 -- closed eventually.
---mpq:close ()
+--casc:close ()
 ```
