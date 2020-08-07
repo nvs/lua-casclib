@@ -1,7 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-- N/A
+### Added
+- Lua 5.4 support.
 
 ## [0.1.0] - 2020-01-06
 - Initial versioned released.
