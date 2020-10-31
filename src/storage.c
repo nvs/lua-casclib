@@ -1,8 +1,8 @@
+#include "storage.h"
 #include "common.h"
 #include "file.h"
 #include "finder.h"
 #include "registry.h"
-#include "storage.h"
 #include <CascLib.h>
 #include <CascPort.h>
 #include <compat-5.3.h>
