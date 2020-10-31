@@ -28,7 +28,7 @@ finder_close (lua_State *L)
 
 	if (!finder->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 	}
 	else
 	{
@@ -118,7 +118,7 @@ finder_iterator (lua_State *L)
 
 	if (!status)
 	{
-		error = GetLastError ();
+		error = GetCascError ();
 		lua_settop (L, 0);
 		lua_pushvalue (L, lua_upvalueindex (1));
 		finder_close (L);
@@ -129,7 +129,7 @@ finder_iterator (lua_State *L)
 		return results;
 	}
 
-	SetLastError (error);
+	SetCascError (error);
 	results = casc_result (L, 0);
 
 error:

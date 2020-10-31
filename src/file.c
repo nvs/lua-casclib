@@ -61,7 +61,7 @@ file_seek (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -102,7 +102,7 @@ read_line (
 		{
 			status = CascReadFile (
 				file->handle, &character, 1, &bytes_read);
-			error = GetLastError ();
+			error = GetCascError ();
 
 			if (!status || bytes_read == 0 || character == '\n')
 			{
@@ -122,7 +122,7 @@ read_line (
 	}
 
 	luaL_pushresult (&line);
-	SetLastError (error);
+	SetCascError (error);
 	return status;
 }
 
@@ -148,7 +148,7 @@ read_characters (
 
 		status = CascReadFile (
 			file->handle, buffer, bytes_to_read, &bytes_read);
-		error = GetLastError ();
+		error = GetCascError ();
 
 		if (!status || bytes_read == 0)
 		{
@@ -160,7 +160,7 @@ read_characters (
 	}
 
 	luaL_pushresult (&characters);
-	SetLastError (error);
+	SetCascError (error);
 	return status;
 }
 
@@ -198,7 +198,7 @@ file_read (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -220,7 +220,7 @@ file_read (lua_State *L)
 	/* Ensure stack space for all results and the buffer. */
 	luaL_checkstack (L, arguments + LUA_MINSTACK, "too many arguments");
 
-	SetLastError (ERROR_SUCCESS);
+	SetCascError (ERROR_SUCCESS);
 	int status = 1;
 
 	for (; arguments-- && status; index++)
@@ -269,7 +269,7 @@ file_read (lua_State *L)
 
 	if (!status)
 	{
-		if (GetLastError () != ERROR_SUCCESS)
+		if (GetCascError () != ERROR_SUCCESS)
 		{
 			goto error;
 		}
@@ -302,7 +302,7 @@ lines_iterator (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -366,7 +366,7 @@ file_lines (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -399,7 +399,7 @@ static int
 file_write (lua_State *L)
 {
 	casc_file_access (L, 1);
-	SetLastError (ERROR_INVALID_HANDLE);
+	SetCascError (ERROR_INVALID_HANDLE);
 	return casc_result (L, 0);
 }
 
@@ -421,7 +421,7 @@ file_setvbuf (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		status = 0;
 	}
 
@@ -446,7 +446,7 @@ file_flush (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		status = 0;
 	}
 
@@ -471,7 +471,7 @@ file_close (lua_State *L)
 
 	if (!file->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 	}
 	else
 	{

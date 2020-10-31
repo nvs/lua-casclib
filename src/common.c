@@ -9,7 +9,7 @@ casc_result (
 	lua_State* L,
 	const int status)
 {
-	const DWORD error = GetLastError ();
+	const DWORD error = GetCascError ();
 
 	if (status || error == ERROR_SUCCESS)
 	{

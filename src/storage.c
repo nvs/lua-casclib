@@ -31,7 +31,7 @@ storage_files (lua_State *L)
 
 	if (!storage->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -75,7 +75,7 @@ storage_open (lua_State *L)
 
 	if (!storage->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 		goto error;
 	}
 
@@ -107,7 +107,7 @@ storage_close (lua_State *L)
 
 	if (!storage->handle)
 	{
-		SetLastError (ERROR_INVALID_HANDLE);
+		SetCascError (ERROR_INVALID_HANDLE);
 	}
 	else
 	{

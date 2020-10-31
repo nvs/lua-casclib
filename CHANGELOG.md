@@ -1,7 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-- N/A
+### Changed
+- Bump CascLib version.  See README.
 
 ## [0.1.1] - 2020-08-06
 ### Added
